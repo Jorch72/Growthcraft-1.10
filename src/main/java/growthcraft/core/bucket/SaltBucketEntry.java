@@ -1,8 +1,8 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016 Jamie Quinn
- * 
+ * Copyright (c) 2016 IceDragon200
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -21,20 +21,43 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package growthcraft.fishtrap.common.block;
+package growthcraft.core.bucket;
 
 import growthcraft.core.GrowthCraftCore;
-import growthcraft.core.common.block.GrcBlockBase;
+import growthcraft.core.eventhandler.EventHandlerBucketFill.IBucketEntry;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeDictionary;
 
-import net.minecraft.block.material.Material;
+import javax.annotation.Nonnull;
 
-public class BlockFishTrap extends GrcBlockBase
+public class SaltBucketEntry implements IBucketEntry
 {
-	public BlockFishTrap()
+	@Override
+	public ItemStack getItemStack()
 	{
-		super(Material.WOOD);
-		setTickRandomly(true);
-		setHardness(0.4F);
-		setCreativeTab(GrowthCraftCore.creativeTab);
+		return GrowthCraftCore.proxy.fluids.saltWater.bucket.asStack();
+	}
+
+	@Override
+	public boolean matches(@Nonnull World world, @Nonnull BlockPos pos)
+	{
+		//if (world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ()) == 0)
+		//{
+			final Biome biome = world.getBiomeForCoordsBody(pos);
+			if (BiomeDictionary.isBiomeOfType(biome, BiomeDictionary.Type.OCEAN))
+			{
+				return true;
+			}
+		//}
+		return false;
+	}
+
+	@Override
+	public void commit(@Nonnull World world, @Nonnull BlockPos pos)
+	{
+		world.setBlockToAir(pos);
 	}
 }

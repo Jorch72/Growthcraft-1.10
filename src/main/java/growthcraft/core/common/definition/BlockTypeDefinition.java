@@ -23,17 +23,16 @@
  */
 package growthcraft.core.common.definition;
 
-import javax.annotation.Nonnull;
-
 import growthcraft.api.core.definition.ISubItemStackFactory;
-
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+import javax.annotation.Nonnull;
 
 public class BlockTypeDefinition<T extends Block> extends ObjectDefinition<T> implements ISubItemStackFactory
 {
@@ -110,7 +109,9 @@ public class BlockTypeDefinition<T extends Block> extends ObjectDefinition<T> im
 	{
 		getBlock().setUnlocalizedName(name);
 		getBlock().setRegistryName(name);
-		GameRegistry.registerBlock(getBlock(), itemClass);
+		// TODO: Research why this throws an error. ~alatyami
+		//GameRegistry.registerBlock(getBlock(), itemClass);
+		GameRegistry.register(getBlock());
 	}
 
 	/**
