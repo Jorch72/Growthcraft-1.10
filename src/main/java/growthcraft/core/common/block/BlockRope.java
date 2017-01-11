@@ -24,11 +24,19 @@
 package growthcraft.core.common.block;
 
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockRope extends GrcBlockBase
 {
+
+
 	public BlockRope()
 	{
 		super(Material.CLOTH);
+		this.setHardness(0.5F);
+
 	}
+
+
 }
