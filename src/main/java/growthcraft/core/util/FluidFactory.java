@@ -122,27 +122,27 @@ public class FluidFactory implements ILoggable
 		{
 			if (block != null)
 			{
-				block.getBlock().setUnlocalizedName(prefix + ".block_fluid" + basename);
-				block.register(prefix + ".block_fluid" + basename);
+				block.getBlock().setUnlocalizedName("block_" + basename);
+				block.register("block_" + basename);
 			}
 			if (bottle != null)
 			{
-				bottle.getItem().setUnlocalizedName(prefix + ".bottle_fluid" + basename);
-				bottle.register(prefix + ".bottle_fluid" + basename);
+				bottle.getItem().setUnlocalizedName("bottle_" + basename);
+				bottle.register("bottle_" + basename);
 				final FluidStack fluidStack = fluid.asFluidStack(GrowthCraftCore.proxy.config.bottleCapacity);
 				FluidContainerRegistry.registerFluidContainer(fluidStack, bottle.asStack(1), FluidContainerRegistry.EMPTY_BOTTLE);
 			}
 			if (foodBottle != null)
 			{
-				foodBottle.getItem().setUnlocalizedName(prefix + ".food_bottle_fluid" + basename);
-				foodBottle.register(prefix + ".bottle_fluid" + basename);
+				foodBottle.getItem().setUnlocalizedName("foodBottle_" + basename);
+				foodBottle.register("foodBottle_" + basename);
 				final FluidStack fluidStack = fluid.asFluidStack(GrowthCraftCore.proxy.config.bottleCapacity);
 				FluidContainerRegistry.registerFluidContainer(fluidStack, foodBottle.asStack(1), FluidContainerRegistry.EMPTY_BOTTLE);
 			}
 			if (bucket != null)
 			{
-				bucket.getItem().setUnlocalizedName(prefix + ".bucket_fluid" + basename);
-				bucket.register(prefix + ".bucket_fluid" + basename);
+				bucket.getItem().setUnlocalizedName("bucket_" + basename);
+				bucket.register("bucket_" + basename);
 				final FluidStack boozeStack = fluid.asFluidStack(FluidContainerRegistry.BUCKET_VOLUME);
 				FluidContainerRegistry.registerFluidContainer(boozeStack, bucket.asStack(), FluidContainerRegistry.EMPTY_BUCKET);
 			}

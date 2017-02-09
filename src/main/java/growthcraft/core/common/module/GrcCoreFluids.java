@@ -37,14 +37,17 @@ public class GrcCoreFluids extends GrcModuleFluidsBase
 	@Override
 	public void preInit()
 	{
-		this.saltWater = FluidFactory.instance().create(new GrcFluid("grccore.SaltWater", new ResourceLocation("minecraft:blocks/water_still"), new ResourceLocation("minecraft:blocks/water_flow")));
+		this.saltWater = FluidFactory.instance().create(
+				new GrcFluid("saltwater",
+						new ResourceLocation("minecraft:blocks/water_still"),
+						new ResourceLocation("minecraft:blocks/water_flow")));
 		saltWater.setCreativeTab(GrowthCraftCore.creativeTab).setItemColor(0x2C41F6);
 	}
 
 	@Override
 	public void register()
 	{
-		saltWater.registerObjects("grccore", "SaltWater");
+		saltWater.registerObjects("grccore", "saltwater");
 	}
 
 	@Override
