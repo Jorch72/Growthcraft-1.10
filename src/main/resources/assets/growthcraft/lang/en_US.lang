@@ -1,0 +1,8 @@
+item.salt.name=Salt
+item.rope.name=Rope
+
+item.structure_spawner.name=Structure Spawner
+
+itemGroup.tabGrowthcraft=Growthcraft
+
+tile.salt_block.name=Salt Block

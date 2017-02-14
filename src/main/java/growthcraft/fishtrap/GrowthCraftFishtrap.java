@@ -22,49 +22,25 @@
  * SOFTWARE.
  */
 
-package growthcraft.core;
+package growthcraft.fishtrap;
 
-import growthcraft.core.init.Blocks;
-import growthcraft.core.init.CreativeTab;
-import growthcraft.core.init.Items;
-import growthcraft.core.proxy.CommonProxy;
-import growthcraft.core.world.GrowthCraftWorldGenerator;
-import net.minecraft.creativetab.CreativeTabs;
+
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(name = References.NAME, version = References.VERSION, modid = References.MODID, acceptedMinecraftVersions = References.MCVERSION)
-public class GrowthCraftCore {
+@Mod(modid = References.MODID, name = References.NAME, version = growthcraft.core.References.VERSION, acceptedMinecraftVersions = growthcraft.core.References.MCVERSION)
+public class GrowthCraftFishtrap {
 
-    @Mod.Instance
-    public static GrowthCraftCore instance;
-
-    @SidedProxy(clientSide = References.CLIENT_PROXY_CLASS, serverSide = References.SERVER_PROXY_CLASS)
-    public static CommonProxy proxy;
-
-    @Mod.Instance
-    public static GrowthCraftCore modInstance;
-
-    // Establish the Creative Tab that wil be used for all Growthcraft Mods.
-    public static CreativeTab tabGrowthcraft = new CreativeTab(CreativeTabs.getNextID(), "tabGrowthcraft");
-
-    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        Items.init();
-        Blocks.init();
+
     }
 
-    @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.init();
-        GameRegistry.registerWorldGenerator(new GrowthCraftWorldGenerator(), 0);
+
     }
 
-    @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 
     }
